@@ -78,17 +78,21 @@ public class App {
      * Performs a call to the database.
      */
     private static void runDatabaseQuery() {
-        String host = "myHost";
-        String database = "myDatabase";
-        String user = "myUsername";
-        String password = "myPassword";
+        String host = "129.157.179.180";
+        String database = "deathstar";
+        String user = "Captain";
+        String password = "Captain";
         DBConnection db = new DBConnection("jdbc:mysql://" 
                 + host + "/" 
                 + database + "?user=" 
                 + user + "&password=" 
                 + password);
         try {
-            db.readData();
+            String query = "SELECT * FROM SecretTable";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            if (rs.next()) System.out.println(rs.getInt("y"));
+            //db.readData();
         } catch (Exception e) {
             System.out.println(e);
         }
