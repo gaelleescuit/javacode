@@ -41,7 +41,8 @@ public class App {
  
         System.out.println("Server started");
  
-        runGetRequest();
+        for(int i = 0; i < 10; i++)
+           {runGetRequest();}
         //runDatabaseQuery();
     }
  
@@ -51,7 +52,8 @@ public class App {
     private static void runGetRequest() {
  
     	// sample URL
-        String url = "http://129.157.179.180:3000/shield/33/45/green/gaelleescuit";
+        String url = "http://129.157.179.180:3000/fighters/45/45/green/gaelleescuit";
+        //http://129.157.179.180:3000/fighters/45/y-coordinate_goes_here/Your_squad_color_goes_here/Your_microservice_name_goes_here
         CloseableHttpResponse response = null;
  
         try {
