@@ -13,6 +13,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
+import java.sql.*;
  
 @SpringBootApplication
 public class App {
@@ -79,6 +80,8 @@ public class App {
      * Performs a call to the database.
      */
     private static int runDatabaseQuery(String dimension) {
+     
+        
         String host = "129.157.179.180";
         String database = "deathstar";
         String user = "Captain";
@@ -89,9 +92,12 @@ public class App {
                 + user + "&password=" 
                 + password);
         try {
-            db.readData();
+            Class.forName("com.mysql.jdbc.Driver");  
+            Connection con=DriverManager.getConnection("jdbc:mysql://129.157.179.180:3306/deathstar","Captain","welcome1");  
+     
+            //db.readData();
             String query = "SELECT * FROM SecretTable";
-            Statement st = db.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query);
             if (rs.next()) System.out.println(rs.getInt(dimension));
             return rs.getInt(dimension);
