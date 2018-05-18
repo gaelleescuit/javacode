@@ -94,7 +94,7 @@ public class App {
             Statement st = db.createStatement();
             ResultSet rs = st.executeQuery(query);
             if (rs.next()) System.out.println(rs.getInt(dimension));
-            return rs.getInt(dimension)
+            return rs.getInt(dimension);
         } catch (Exception e) {
             System.out.println(e);
         }
