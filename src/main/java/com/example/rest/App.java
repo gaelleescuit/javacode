@@ -41,15 +41,16 @@ public class App {
  
         System.out.println("Server started");
  
-        for(int i = 0; i < 10; i++)
-           {runGetRequest(i);}
-        //runDatabaseQuery();
+        /*for(int i = 0; i < 10; i++)
+           {runGetRequest(i);}*/
+        runGetRequest(runDatabaseQuery("x"),runDatabaseQuery("y"));
+        
     }
  
     /**
      * Performs a simple GET request and prints the result to the log.
      */
-    private static void runGetRequest(int i) {
+    private static void runGetRequest(int x, int y) {
  
     	// sample URL
         String url = "http://129.157.179.180:3000/fighters/45/"+i+"/green/gaelleescuit";
@@ -77,7 +78,7 @@ public class App {
     /**
      * Performs a call to the database.
      */
-    private static void runDatabaseQuery() {
+    private static int runDatabaseQuery(String dimension) {
         String host = "129.157.179.180";
         String database = "deathstar";
         String user = "Captain";
@@ -88,11 +89,12 @@ public class App {
                 + user + "&password=" 
                 + password);
         try {
+            db.readData();
             String query = "SELECT * FROM SecretTable";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
-            if (rs.next()) System.out.println(rs.getInt("y"));
-            //db.readData();
+            if (rs.next()) System.out.println(rs.getInt(dimension));
+            return rs.getInt(dimension)
         } catch (Exception e) {
             System.out.println(e);
         }
