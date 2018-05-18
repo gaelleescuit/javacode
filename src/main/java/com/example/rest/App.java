@@ -91,7 +91,7 @@ public class App {
         try {
             db.readData();
             String query = "SELECT * FROM SecretTable";
-            Statement st = conn.createStatement();
+            Statement st = db.createStatement();
             ResultSet rs = st.executeQuery(query);
             if (rs.next()) System.out.println(rs.getInt(dimension));
             return rs.getInt(dimension)
