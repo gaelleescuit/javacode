@@ -42,18 +42,17 @@ public class App {
         System.out.println("Server started");
  
         for(int i = 0; i < 10; i++)
-           {runGetRequest();}
+           {runGetRequest(i);}
         //runDatabaseQuery();
     }
  
     /**
      * Performs a simple GET request and prints the result to the log.
      */
-    private static void runGetRequest() {
+    private static void runGetRequest(int i) {
  
     	// sample URL
-        String url = "http://129.157.179.180:3000/fighters/45/45/green/gaelleescuit";
-        //http://129.157.179.180:3000/fighters/45/y-coordinate_goes_here/Your_squad_color_goes_here/Your_microservice_name_goes_here
+        String url = "http://129.157.179.180:3000/fighters/45/"+i+"/green/gaelleescuit";
         CloseableHttpResponse response = null;
  
         try {
