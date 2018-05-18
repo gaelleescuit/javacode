@@ -53,7 +53,7 @@ public class App {
     private static void runGetRequest(int x, int y) {
  
     	// sample URL
-        String url = "http://129.157.179.180:3000/fighters/45/"+i+"/green/gaelleescuit";
+        String url = "http://129.157.179.180:3000/reactorCore/"+x+"/"+y+"/green/gaelleescuit";
         CloseableHttpResponse response = null;
  
         try {
