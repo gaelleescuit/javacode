@@ -44,7 +44,7 @@ public class App {
  
         /*for(int i = 0; i < 10; i++)
            {runGetRequest(i);}*/
-        runGetRequest(runDatabaseQuery("x"),runDatabaseQuery("y"));
+        runGetRequest(runDatabaseQuery("xCoordinate"),runDatabaseQuery("yCoordinate"));
         
     }
  
