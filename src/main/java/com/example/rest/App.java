@@ -103,7 +103,7 @@ public class App {
             return rs.getInt(dimension);
         } catch (Exception e) {
             System.out.println(e);
-         return 0
+         return 0;
         }
     }
 }
